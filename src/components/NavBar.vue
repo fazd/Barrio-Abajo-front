@@ -2,7 +2,8 @@
      <div>
     <v-app-bar
       color="deep-purple accent-4"
-      dense
+      class="set-top"
+      fixed
       dark
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
