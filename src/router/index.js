@@ -3,8 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Login from '../views/Login.vue'
-import CreateEvent from '../views/CreateEvent.vue'
 import Register from '../views/Register.vue'
+import PickEvent from '../views/PickEvent.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -29,14 +29,9 @@ const routes = [
     component: Login
   },
   {
-    path:'/create-event',
-    name:'create-event',
-    component: CreateEvent
-  },
-  {
-    path: '/home',
-    name: 'home',
-    component: Home
+    path: '/pick-event',
+    name: 'pick-event',
+    component: PickEvent
   },
   {
     path:'/register',
