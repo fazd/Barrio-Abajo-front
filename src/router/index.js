@@ -4,12 +4,17 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Login from '../views/Login.vue'
 import CreateEvent from '../views/CreateEvent.vue'
-
+import Register from '../views/Register.vue'
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+    name: 'home',
+    component: Home
+  },
+  {
+    path: '/home',
     name: 'home',
     component: Home
   },
@@ -32,7 +37,12 @@ const routes = [
     path: '/home',
     name: 'home',
     component: Home
-  }
+  },
+  {
+    path:'/register',
+    name:'register',
+    component: Register
+  },
 ]
 
 const router = new VueRouter({
