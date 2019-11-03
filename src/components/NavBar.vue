@@ -13,6 +13,11 @@
 
       <v-spacer></v-spacer>
 
+      <v-btn text dark rounded >
+        <a href="http://marimonda.000webhostapp.com/index.html" target="_blank">Juega con nosotros</a>
+        
+      </v-btn>
+
       <v-btn text dark rounded :to="'Cultura'">
         Cultura
       </v-btn>
