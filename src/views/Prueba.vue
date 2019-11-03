@@ -1,7 +1,6 @@
 <template>
-  <v-container>
+
       <Event></Event>
-  </v-container>
 </template>
 
 <script>
