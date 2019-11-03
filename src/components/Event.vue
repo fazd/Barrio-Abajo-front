@@ -47,6 +47,10 @@ export default {
     role: {
       type: String,
       required: true
+    },
+    dialog:{
+      type: Boolean,
+      default: false,
     }
   },
   data: () => ({
@@ -60,7 +64,7 @@ export default {
     comments: undefined
   }),
   mounted() {
-    this.axios.get("http://localhost:3000/Event").then(res => {
+    /*this.axios.get("http://localhost:3000/Event").then(res => {
       console.log(this);
       this.img = res.data.img;
       this.title = res.data.title;
@@ -70,7 +74,8 @@ export default {
       this.place = res.data.place;
       this.comments = res.data.comments;
       this.review = res.data.review;
-    });
+    });*/
+    this.date = new Date()
   }
 };
 </script>

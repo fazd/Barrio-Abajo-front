@@ -8,7 +8,7 @@
             class="mx-auto mt-5 mr-5"
             max-width="400"
             max-height="400"
-            
+            @click="dialog=true"
         >
             <v-img
             class="white--text align-end"
@@ -20,7 +20,16 @@
             <div style="color:white">{{card.subtitle}}</div>
             </v-card-text>
             </v-img>
-
+            <v-dialog
+                v-model="dialog"
+                max-width="1500"
+                max-height="650"
+            >
+                <v-card>
+                    <Event :name="card.title" :role="'Cultura'" :dialog="dialog" ></Event>
+                    <v-btn @click="dialog=false">Cerrar</v-btn>
+                </v-card>
+            </v-dialog>
             
         </v-card>
     </div>
@@ -32,7 +41,7 @@
             class="mx-auto mt-5 mr-5"
             max-width="400"
             max-height="400"
-            
+            @click="dialog2=true"
         >
             <v-img
             class="white--text align-end"
@@ -45,7 +54,16 @@
             <div style="color:white">{{card.subtitle}}</div>
             </v-card-text>
             </v-img>
-
+            <v-dialog
+                v-model="dialog2"
+                max-width="1500"
+                max-height="650"
+            >
+                <v-card>
+                    <Event :name="card.title" :role="'Cultura'" :dialog="dialog2" ></Event>
+                    <v-btn @click="dialog2=false">Cerrar</v-btn>
+                </v-card>
+            </v-dialog>
             
         </v-card>
     </div>
@@ -57,7 +75,7 @@
             class="mx-auto mt-5 mr-5"
             max-width="400"
             max-height="400"
-            
+            @click="dialog3=true"
         >
             <v-img
             class="white--text align-end"
@@ -71,8 +89,16 @@
             <div style="color:white">{{card.subtitle}}</div>
             </v-card-text>
             </v-img>
-
-            
+            <v-dialog
+                v-model="dialog3"
+                max-width="1500"
+                max-height="650"
+            >
+                <v-card>
+                    <Event :name="card.title" :role="'Cultura'" :dialog="dialog3" ></Event>
+                    <v-btn @click="dialog3=false">Cerrar</v-btn>
+                </v-card>
+            </v-dialog>
         </v-card>
     </div>
     
@@ -80,10 +106,10 @@
 </template>
 
 <script>
-
+import Event from '../components/Event'
 export default {
     components:{
-        
+        Event
     },
     data: ()=>({
         cards: [
@@ -107,7 +133,10 @@ export default {
                 subtitle:'Conoce el barrio ',
                 route: require('./Img/loading03.png')
             },
-        ]
+        ],
+        dialog:false,
+        dialog2:false,
+        dialog3:false
     })
 }
 </script>
