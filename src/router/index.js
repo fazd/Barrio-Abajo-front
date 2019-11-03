@@ -29,6 +29,11 @@ const routes = [
     component: Login
   },
   {
+    path: '/home',
+    name: 'home',
+    component: Home
+  },
+  {
     path: '/pick-event',
     name: 'pick-event',
     component: PickEvent

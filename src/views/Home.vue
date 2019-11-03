@@ -49,19 +49,26 @@
       </v-slide-group>
     </v-sheet>
     </div>
-    
+    <Event name="Hackaton"></Event>
   </v-app>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import Event from './Event'
 export default {
   name: 'home',
   components: {
+    Event
   },
   data: ()=>({
-    model: null
+    model: null,
+    img: 'efsadf',
+    title: 'dasfs',
+    author:'wfsdf',
+    rating: 3,
+    review: 'sasdfasf',
+    date: new Date()  
   })
 }
 </script>
