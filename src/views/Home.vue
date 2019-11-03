@@ -56,7 +56,6 @@
       </v-slide-group>
     </v-sheet>
     </div>
-    <Event name="Hackaton"></Event>
     <div class="btngroup mx-auto">
       <v-btn fab dark large class="mr-5" :to="'About'">
         <v-img width="70" height="70" :src="require('./Img/Recurso12.png')"></v-img>
@@ -72,12 +71,11 @@
 </template>
 
 <script>
-import Event from '../components/Event'
 // @ is an alias to /src
 export default {
   name: 'home',
   components: {
-    Event
+    
   },
   data: ()=>({
     model: null,

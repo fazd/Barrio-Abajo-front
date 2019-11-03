@@ -1,6 +1,8 @@
 <template>
   <v-container id="container mx-auto">
-    <div id="image-container mx-auto">
+    
+    
+    <div id="image-container" class="mx-auto">
       <!--<v-img
         :src="img"
         class="grey lighten-2"
@@ -82,10 +84,10 @@ h{
 }
 #image-container{
 
-    background-image: url("Foto.jpg");
-    background-size: 100%;
-    width:100%;
-    height:400px;
+  background-image: url('Foto.jpg');
+  background-size: 100%;
+  width:100%;
+  height:400px;
 }
 #review{
  position: relative;
@@ -124,4 +126,12 @@ h{
   margin: 0%;
   text-align: justify;
 }
+
+.imbac{
+  background-image: url('Foto.jpg');
+  background-size: 100%;
+  width:100%;
+  height:400px;
+}
+
 </style>

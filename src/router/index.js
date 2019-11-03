@@ -9,6 +9,7 @@ import Musica from '../views/Musica.vue'
 import Literatura from '../views/Literatura.vue'
 import Comida from '../views/Comida.vue'
 import Fotografia from '../views/Fotografia.vue'
+import Prueba from '../views/Prueba.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -66,6 +67,11 @@ const routes = [
     path:'/fotografia',
     name:'fotografia',
     component: Fotografia
+  },
+  {
+    path:'/event',
+    name:'Evento',
+    component: Prueba
   }
 ]
 
