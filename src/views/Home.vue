@@ -1,18 +1,12 @@
 <template>
   <v-app fluid fill-height>
     <div class="imgBack mt-n9 ml-n7 mr-n7">
-      <div class="imgBack2 ">
-        <div class="data">
-          <v-btn class="bb" fab>
-            hola
-          </v-btn>
-        </div>
-
+      <div class="imgBack2 ">  
       </div>
+      
       <div class="regCarnival">
-        <h2>200 &#9; Dias</h2>
+        <h2>111 &#9; Dias</h2>
       </div>
-
       <v-sheet
       class="mx-auto sld"
       elevation="8"
@@ -132,7 +126,9 @@ export default {
     align-content: center;
     margin-top:-6%;
   }
-
+  .texto{
+    margin-top:-50%;
+  }
 
 
 </style>

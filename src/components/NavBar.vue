@@ -6,16 +6,15 @@
       fixed
       dark
     >
-      <v-btn text dark fab class="mr-4" :to="'Home'">
-        <v-icon>mdi-home</v-icon>
+      <v-btn text dark rounded class="mr-4" :to="'Home'">
+        <v-img width="150" :src="require('./transparent.png')"></v-img>
       </v-btn>
       <v-toolbar-title>BARRIOBAJEANDO</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <v-btn text dark rounded >
-        <a href="http://marimonda.000webhostapp.com/index.html" target="_blank">Juega con nosotros</a>
-        
+        <a style="color:white;text-decoration:none" href="http://marimonda.000webhostapp.com/index.html" target="_blank">Juega con nosotros</a>
       </v-btn>
 
       <v-btn text dark rounded :to="'Cultura'">
@@ -40,5 +39,7 @@ export default {
 </script>
 
 <style>
-
+  a {
+    color:inherit;
+  }
 </style>
