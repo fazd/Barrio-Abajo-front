@@ -1,6 +1,6 @@
 <template>
   <v-container fill-height fluid>
-    <div class="d-block mt-12 text-center" >
+    <div class="d-inline-block  mt-12 text-center" >
         <h1>Cultura</h1>
         <v-card
             v-for="card in cards"
@@ -16,17 +16,15 @@
             :src="card.route"
             >
             <v-card-title>{{card.title}}</v-card-title>
+            <v-card-text class="text--primary">
+            <div style="color:white">{{card.subtitle}}</div>
+            </v-card-text>
             </v-img>
 
             
-            <v-card-text class="text--primary">
-            <div>Whitehaven Beach</div>
-
-            <div>Whitsunday Island, Whitsunday Islands</div>
-            </v-card-text>
         </v-card>
     </div>
-    <div class="d-block text-center mx-auto mt-12">
+    <div class="d-inline-block text-center mx-auto mt-12">
         <h1>Cultura</h1>
         <v-card
             v-for="card in cards"
@@ -42,17 +40,16 @@
             :src="card.route"
             >
             <v-card-title center>{{card.title}}</v-card-title>
+            <v-card-text class="text--primary">
+        
+            <div style="color:white">{{card.subtitle}}</div>
+            </v-card-text>
             </v-img>
 
             
-            <v-card-text class="text--primary">
-            <div>Whitehaven Beach</div>
-
-            <div>Whitsunday Island, Whitsunday Islands</div>
-            </v-card-text>
         </v-card>
     </div>
-    <div class="d-block text-center mt-12">
+    <div class="d-inline-block  text-center mt-12">
         <h1>Cultura</h1>
         <v-card
             v-for="card in cards"
@@ -68,14 +65,14 @@
             :src="card.route"
             >
             <v-card-title>{{card.title}}</v-card-title>
+            <v-card-text class="text--primary">
+            
+
+            <div style="color:white">{{card.subtitle}}</div>
+            </v-card-text>
             </v-img>
 
             
-            <v-card-text class="text--primary">
-            <div>Whitehaven Beach</div>
-
-            <div>Whitsunday Island, Whitsunday Islands</div>
-            </v-card-text>
         </v-card>
     </div>
     
@@ -89,7 +86,28 @@ export default {
         
     },
     data: ()=>({
-        
+        cards: [
+            {
+                title:'Musica',
+                subtitle:'La mejor musica de Barranquilla',
+                route: require('./Img/loading02.png')
+            },
+            {
+                title:'Literatura',
+                subtitle:'Conoce la literatura de Barrio abajo',
+                route:require('./Img/loading01.png')
+            },
+            {
+                title:'Comida',
+                subtitle:'Prueba las comidas tipicas del barrio',
+                route: require('./Img/loading05.png')
+            },
+            {
+                title:'Fotografia',
+                subtitle:'Conoce el barrio ',
+                route: require('./Img/loading03.png')
+            },
+        ]
     })
 }
 </script>
