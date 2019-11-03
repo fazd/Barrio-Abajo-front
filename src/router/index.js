@@ -29,9 +29,15 @@ const routes = [
     component: Login
   },
   {
+<<<<<<< HEAD
     path: '/pick-event',
     name: 'pick-event',
     component: PickEvent
+=======
+    path: '/home',
+    name: 'home',
+    component: Home
+>>>>>>> Event component
   },
   {
     path:'/register',
