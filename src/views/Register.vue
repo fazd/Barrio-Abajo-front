@@ -1,7 +1,7 @@
 <template>
-   <v-container fill-height class="mx-auto my-auto" width="500">
+   <v-container  fill-height class="mx-auto my-auto imba">
     <v-stepper v-model="e1" class="mx-auto">
-      <v-stepper-header>
+      <v-stepper-header >
         <v-stepper-step :complete="e1 > 1" step="1">Datos de la cuenta</v-stepper-step>
 
         <v-divider></v-divider>
@@ -16,7 +16,7 @@
       <v-stepper-items>
         <v-stepper-content step="1">
           <v-card class="mb-12" >
-            <v-toolbar color="primary" dark>
+            <v-toolbar color="#009933" dark>
               <v-toolbar-title>Datos de la cuenta</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
@@ -60,14 +60,14 @@
             </v-card-text>
           </v-card>
 
-          <v-btn color="primary" @click="valid1">Continue</v-btn>
+          <v-btn color="#009933" @click="valid1">Continue</v-btn>
 
           <v-btn text>Cancel</v-btn>
         </v-stepper-content>
 
         <v-stepper-content step="2">
           <v-card class="mb-12" >
-            <v-toolbar color="primary" dark>
+            <v-toolbar color="#009933" dark>
               <v-toolbar-title>Datos personales </v-toolbar-title>
             </v-toolbar>
             
@@ -101,12 +101,12 @@
               <v-date-picker v-model="dateInpt" no-title scrollable>
                 <v-spacer></v-spacer>
                 <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
-                <v-btn text color="primary" @click="$refs.menu.save(dateInpt)">OK</v-btn>
+                <v-btn text color="#009933" @click="$refs.menu.save(dateInpt)">OK</v-btn>
               </v-date-picker>
             </v-menu>
           </v-card>
 
-          <v-btn color="primary" @click="e1 = 3">Continue</v-btn>
+          <v-btn color="#009933" @click="e1 = 3">Continue</v-btn>
 
           <v-btn text>Cancel</v-btn>
         </v-stepper-content>
@@ -212,4 +212,13 @@ export default {
 </script>
 
 <style>
+  .imba{
+        background-image: url('login.jpg');
+        background-size: 100%;
+        position: relative;
+        max-width: 2500px;
+        
+    }
+
+
 </style>

@@ -1,7 +1,7 @@
-<template>
-  <v-container fill-height>
+<template class=" yellow accent-1">
+  <v-container max-width="3000" class=" mx-auto ml-0 mr-0 yellow accent-1 imba" fill-height>
       <v-card class="mx-auto" width="500">
-        <v-toolbar color="primary" dark>
+        <v-toolbar color="#009933" dark>
             <v-toolbar-title>Inicio de sesion</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
@@ -31,9 +31,9 @@
             </v-form>
         </v-card-text>
         <v-card-actions>
-            <v-btn color="success">Registrarse</v-btn>
+            <v-btn color="info" :to="'Register'">Registrarse</v-btn>
             <v-spacer></v-spacer>
-            <v-btn color="primary" @click="isValid">Login</v-btn>
+            <v-btn class="success" @click="isValid" dark>Login</v-btn>
         </v-card-actions>
       </v-card>
 
@@ -81,5 +81,11 @@ export default {
 </script>
 
 <style>
-
+    .imba{
+        background-image: url('login.jpg');
+        background-size: 100%;
+        position: relative;
+        max-width: 2500px;
+        
+    }
 </style>

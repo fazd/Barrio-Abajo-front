@@ -81,11 +81,11 @@ h{
   margin-left: 20px;
 }
 #image-container{
-    width:100%;
-    height:400px;
+
     background-image: url("Foto.jpg");
     background-size: 100%;
-
+    width:100%;
+    height:400px;
 }
 #review{
  position: relative;

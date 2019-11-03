@@ -4,6 +4,7 @@
       <v-img
         :src="img"
         class="grey lighten-2 mx-auto"
+        @click="ff"
       >
         <template v-slot:placeholder>
           <v-row class="fill-height ma-0" align="center" justify="center">

@@ -3,10 +3,16 @@
     <div class="imgBack mt-n9 ml-n7 mr-n7">
       <div class="imgBack2 ">
         <div class="data">
-
+          <v-btn class="bb" fab>
+            hola
+          </v-btn>
         </div>
 
       </div>
+      <div class="regCarnival">
+        <h2>200 &#9; Dias</h2>
+      </div>
+
       <v-sheet
       class="mx-auto sld"
       elevation="8"
@@ -19,12 +25,11 @@
         show-arrows
       >
         <v-slide-item
-          v-for="n in 15"
-          :key="n"
+          v-for="(link,i) in links"
+          :key="link.url"
           v-slot:default="{ active, toggle }"
         >
           <v-card
-            :color="active ? undefined : 'grey lighten-1'"
             class="ma-4"
             height="300"
             width="300"
@@ -35,27 +40,40 @@
               align="center"
               justify="center"
             >
-              <v-scale-transition>
-                <v-icon
-                  v-if="active"
-                  color="white"
-                  size="48"
-                  v-text="'mdi-close-circle-outline'"
-                ></v-icon>
-              </v-scale-transition>
-            </v-row>
+             <v-col >
+               
+              <v-img
+                contain
+                :src="require('./Img/FotosHome/img'+i+'.jpg')"
+                :style="link.style"
+              >
+              </v-img>
+              </v-col> 
+              
+            </v-row>        
           </v-card>
         </v-slide-item>
       </v-slide-group>
     </v-sheet>
     </div>
     <Event name="Hackaton"></Event>
+    <div class="btngroup mx-auto">
+      <v-btn fab dark large class="mr-5" :to="'About'">
+        <v-img width="70" height="70" :src="require('./Img/Recurso12.png')"></v-img>
+      </v-btn>
+      <v-btn fab dark x-large class="mr-5" >
+        <v-img class="mt-5" width="130" height="130" :src="require('./Img/Recurso11.png')"></v-img>
+      </v-btn>
+      <v-btn fab dark large class="mr-5" :to="'Login'">
+        <v-img width="70" height="70" :src="require('./Img/Recurso10.png')"></v-img>
+      </v-btn>
+    </div>
   </v-app>
 </template>
 
 <script>
-// @ is an alias to /src
 import Event from '../components/Event'
+// @ is an alias to /src
 export default {
   name: 'home',
   components: {
@@ -63,13 +81,20 @@ export default {
   },
   data: ()=>({
     model: null,
-    img: 'efsadf',
-    title: 'dasfs',
-    author:'wfsdf',
-    rating: 3,
-    review: 'sasdfasf',
-    date: new Date()  
-  })
+    links: []
+  }),
+  methods:{
+    
+  },
+  created(){
+    for(let i=1; i <=18; i++){
+        if(i == 7 || i==12 || i == 19)
+          this.links.push({url:'./Img/FotosHome/img'+i+'.jpg', style:'transform: rotate(90deg)'})
+        else
+          this.links.push({url:'./Img/FotosHome/img'+i+'.jpg', style:'transform: rotate(0deg)'})
+    }
+    console.log(this.links)
+  }
 }
 </script>
 
@@ -93,9 +118,23 @@ export default {
   }
 
   .sld{
-    margin-top: -20%;
+    margin-top: 20%;
+    margin-right:50%
     
   }
+  .regCarnival{
+    margin-top:-45%;
+    margin-left:31%;
+    font-size: 64px;
+    padding-bottom: 0;
+    color:white
+
+  }
+  .btngroup{
+    align-content: center;
+    margin-top:-6%;
+  }
+
 
 
 </style>
