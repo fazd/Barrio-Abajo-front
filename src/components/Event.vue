@@ -1,42 +1,32 @@
 <template>
-  <v-container id="container">
-    <div id="image-container">
-      <v-img
+  <v-container id="container mx-auto">
+    <div id="image-container mx-auto">
+      <!--<v-img
         :src="img"
-        lazy-src="https://picsum.photos/id/11/100/60"
-        class="grey lighten-2 mx-auto"
-      >
-        <template v-slot:placeholder>
-          <v-row class="fill-height ma-0" align="center" justify="center">
-            <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-          </v-row>
-        </template>
-      </v-img>
-      <v-divider></v-divider>
-      <v-card id="review">
-        <v-card-title class="justify-center mx-auto" id="review">Descripción</v-card-title>
-        <v-card-text class="black--text text-center">{{review}}</v-card-text>
-      </v-card>
-    </div>
-
-    <v-card id="event-info">
-      <v-card-title class="justify-center">{{title}}</v-card-title>
-      <v-card-subtitle class="justify-center">Author: {{author}}</v-card-subtitle>
-      <v-card-subtitle class="justify-center">Date: {{date.toDateString()}}</v-card-subtitle>
-      <v-card-subtitle class="justify-center">Place: {{place}}</v-card-subtitle>
+        class="grey lighten-2"
+      >-->
+        <div id="review" class="mx-auto">
+        <div class="text-center green">{{review}}</div>
+        <div class="mx-auto yellow">Descripción</div>
+        </div>
+        <div id="event-info" class="green rounded">
+      <h1>{{title}}</h1>
+      <h3>{{author}}</h3>
       <div class="text-center">
         <v-rating v-model="rating" disabled background-color="orange lighten-3" color="orange"></v-rating>
       </div>
-      <v-divider></v-divider>
       <div class="scroll">
-        <v-card  v-for="(comment,index) in comments" :key="index" class="mx-auto">
-          <v-card-title>{{comment.user}}</v-card-title>
-          <v-card-subtitle>{{comment.date}}</v-card-subtitle>
-          <v-card-text class="black--text">{{comment.text}}</v-card-text>
-          <v-divider></v-divider>
+        <v-card  v-for="(comment,index) in comments" :key="index" class="mx-auto comment">
+          <v-card-title class="text">{{comment.user}}</v-card-title>
+          <v-card-subtitle class="text">{{comment.date}}</v-card-subtitle>
+          <v-card-text class="black--text text">{{comment.text}}</v-card-text>
         </v-card>
       </div>
-    </v-card>
+      <div class="yellow"><h3>{{date.toDateString()}}</h3></div>
+      <div class="red"><h3>{{place}}</h3></div>
+    </div>
+      <!--</v-img>-->
+    </div>
   </v-container>
 </template>
 
@@ -68,11 +58,12 @@ export default {
       console.log(this);
       this.img = res.data.img;
       this.title = res.data.title;
-      this.author = res.data.title;
+      this.author = res.data.author;
       this.rating = res.data.rating;
       this.date = new Date(res.data.date);
       this.place = res.data.place;
       this.comments = res.data.comments;
+      this.review = res.data.review;
     });
   }
 
@@ -80,21 +71,57 @@ export default {
 </script>
 
 <style scoped>
-#container {
-  display: flex;
+h{
+  text-align: center;
 }
 
 #event-info {
-  width: 100%;
+  width: 40%;
+  height: 70%;
   margin-left: 20px;
 }
 #image-container{
     width:100%;
     height:400px;
+    background-image: url("Foto.jpg");
+    background-size: 100%;
+
+}
+#review{
+ position: relative;
+ width: 30%;
+ height: 40%;
+ margin-right: 30%;   
 }
 .scroll{
     width: 100%;
-    height: 400px;
+    height: 350px;
     overflow-y: auto;
+}
+.green{
+  text-align: center;
+  background-color: rgb(0,153,51);
+  opacity: 60%;
+  color: white;
+  
+}
+.yellow{
+  background-color: yellow;
+  color: green;
+}
+.red{
+  background-color: red;
+  color: white;
+}
+.rounded{
+  border-top-left-radius: 20%;
+}
+.comment{
+  width: 80%;
+  margin-top: 2%;
+}
+.text{
+  margin: 0%;
+  text-align: justify;
 }
 </style>
