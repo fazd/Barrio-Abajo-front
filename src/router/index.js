@@ -30,6 +30,14 @@ const routes = [
   },
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    path: '/home',
+    name: 'home',
+    component: Home
+  },
+  {
+>>>>>>> 760f3a5d80d130315edd5408a3df19bcf7c4765c
     path: '/pick-event',
     name: 'pick-event',
     component: PickEvent
