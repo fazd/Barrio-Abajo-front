@@ -73,7 +73,8 @@ export default {
                 this.enableEmail = this.emailInpt.match(/\S+@\S+\.\S+/) != null
                 this.enablePassword = this.passwordInpt.length > 2
             
-            } 
+            }
+            console.log(this); 
         }
     }
 }
