@@ -23,8 +23,9 @@
       <v-card-title class="justify-center">{{title}}</v-card-title>
       <v-card-subtitle class="justify-center">Author: {{author}}</v-card-subtitle>
       <v-card-subtitle class="justify-center">Date: {{date.toDateString()}}</v-card-subtitle>
+      <v-card-subtitle class="justify-center">Place: {{place}}</v-card-subtitle>
       <div class="text-center">
-        <v-rating v-model="rating" background-color="orange lighten-3" color="orange"></v-rating>
+        <v-rating v-model="rating" disabled background-color="orange lighten-3" color="orange"></v-rating>
       </div>
       <v-divider></v-divider>
       <div class="scroll">
@@ -42,35 +43,35 @@
 <script>
 export default {
   props: {
-    img: {
+    name:{
       type: String,
       required: true
-    },
-    review: {
-      type: String,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    author: {
-      type: String,
-      required: true
-    },
-    rating: {
-      type: Number,
-      required: true
-    },
-    date:{
-        type: Date,
-        required: true
-    },
-    comments: {
-      type: Array,
-      required: false
     }
+  },
+  data: ()=>({
+    img: undefined,
+    title: undefined,
+    author:undefined,
+    rating: undefined,
+    review: undefined,
+    date: new Date(),
+    place: undefined,
+    comments: undefined  
+  }),
+  mounted(){
+    this.axios.get('http://localhost:3000/Event')
+    .then((res)=>{
+      console.log(this);
+      this.img = res.data.img;
+      this.title = res.data.title;
+      this.author = res.data.title;
+      this.rating = res.data.rating;
+      this.date = new Date(res.data.date);
+      this.place = res.data.place;
+      this.comments = res.data.comments;
+    });
   }
+
 };
 </script>
 
