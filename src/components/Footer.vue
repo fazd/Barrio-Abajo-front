@@ -1,6 +1,6 @@
 <template>
   <v-footer
-    color="primary lighten-1"
+    color="#009933"
     padless
   >
     <v-row
@@ -18,10 +18,10 @@
         {{ link }}
       </v-btn>
       <v-col
-        class="primary lighten-2 py-4 text-center white--text"
+        class="#009933 py-4 text-center white--text"
         cols="12"
       >
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+        {{ new Date().getFullYear() }} <br> <strong>Juan Arrieta-Fabio Cuello-<br>Andrea Rugeles-Carlos Vergara-<br>Fabio Zapata</strong>
       </v-col>
     </v-row>
   </v-footer>
@@ -31,7 +31,7 @@
 export default {
   data: ()=>({
     links: [
-      'Hola'
+      
     ]
   })
 }

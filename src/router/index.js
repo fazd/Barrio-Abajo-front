@@ -5,6 +5,11 @@ import About from '../views/About.vue'
 import Login from '../views/Login.vue'
 import CreateEvent from '../views/CreateEvent.vue'
 import Register from '../views/Register.vue'
+import Cultura from '../views/Cultura.vue'
+import Musica from '../views/Musica.vue'
+import Literatura from '../views/Literatura.vue'
+import Comida from '../views/Comida.vue'
+import Fotografia from '../views/Fotografia.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -43,6 +48,31 @@ const routes = [
     name:'register',
     component: Register
   },
+  {
+    path:'/cultura',
+    name:'cultura',
+    component: Cultura
+  },
+  {
+    path:'/musica',
+    name:'musica',
+    component: Musica
+  },
+  {
+    path:'/literatura',
+    name:'literatura',
+    component: Literatura
+  },
+  {
+    path:'/comida',
+    name:'comida',
+    component: Comida
+  },
+  {
+    path:'/fotografia',
+    name:'fotografia',
+    component: Fotografia
+  }
 ]
 
 const router = new VueRouter({

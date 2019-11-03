@@ -5,6 +5,7 @@
         :src="img"
         lazy-src="https://picsum.photos/id/11/100/60"
         class="grey lighten-2 mx-auto"
+        @click="ff"
       >
         <template v-slot:placeholder>
           <v-row class="fill-height ma-0" align="center" justify="center">
@@ -22,7 +23,7 @@
     <v-card id="event-info">
       <v-card-title class="justify-center">{{title}}</v-card-title>
       <v-card-subtitle class="justify-center">Author: {{author}}</v-card-subtitle>
-      <v-card-subtitle class="justify-center">Date: {{date.toDateString()}}</v-card-subtitle>
+      <v-card-subtitle class="justify-center">Date: {{date}}</v-card-subtitle>
       <div class="text-center">
         <v-rating v-model="rating" background-color="orange lighten-3" color="orange"></v-rating>
       </div>
@@ -41,37 +42,33 @@
 
 <script>
 export default {
-  props: {
-    img: {
-      type: String,
-      required: true
-    },
-    review: {
-      type: String,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    author: {
-      type: String,
-      required: true
-    },
-    rating: {
-      type: Number,
-      required: true
-    },
-    date:{
-        type: Date,
-        required: true
-    },
-    comments: {
-      type: Array,
-      required: false
+  
+  data: ()=>({
+    img:'',
+    review:'',
+    title:'',
+    author:'',
+    rating:3,
+    date:'',
+    comments:[],
+    place:'',
+
+  }),
+  methods:{
+    ff(){
+      console.log(this);
     }
+  },
+  mounted(){
+    this.axios.get('http://localhost:3001/evento')
+    .then(response =>{
+          this.img = response.data.img;
+          this.date = response.data.date
+      }).catch(error => {
+          console.log(error);
+    })
   }
-};
+}
 </script>
 
 <style scoped>
