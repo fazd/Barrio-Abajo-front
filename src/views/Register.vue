@@ -1,6 +1,6 @@
 <template>
    <v-container  fill-height class="mx-auto my-auto imba">
-    <v-stepper v-model="e1" class="mx-auto">
+    <v-stepper v-model="e1" class="mx-auto mt-12">
       <v-stepper-header >
         <v-stepper-step :complete="e1 > 1" step="1">Datos de la cuenta</v-stepper-step>
 
@@ -197,16 +197,23 @@ export default {
         institution: this.institution,
         genre: g
       }
-      //var obj = JSON.stringify(text);
-      console.log(text)
-      this.axios.post('http://localhost:3001/register',text)
-      .then(function (response) {
+      var obj = text;
+      console.log(obj)
+      this.axios.post('http://localhost:3001/register',obj)
+      .then(response=> {
           console.log(response);
+          if(response.data.success){
+            alert('Registrado exitosamente')
+            this.$Store.data.token = response.data.token
+          }
+          else{
+            alert('Error en el registro')
+          }
       })
       .catch(function (error) {
           console.log(error);
       });
-      this.$router.push({ path: 'Home ' })
+      this.$router.push({ path: 'Home' })
     }
   }
 };

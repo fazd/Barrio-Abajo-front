@@ -56,17 +56,19 @@ export default {
         isValid(){
             var op = this.emailInpt.match(/\S+@\S+\.\S+/) != null && this.passwordInpt.length > 2
             if(op){
-                var text = JSON.stringify({
-                "email":this.emailInpt,
-                "password":this.passwordInpt
-                })
+
+                var text = {
+                email:this.emailInpt,
+                password:this.passwordInpt
+                }
                 console.log(text)
                 this.enableEmail = true
                 this.enablePassword = true
-                this.axios.get("localhost:3001/login").then((response) => {
-                console.log(response.data)
+                this.axios.post('http://localhost:3001/login',text).then((response) => {
+                    console.log(response.data)
+                    
                 })  
-                
+                this.$router.push({ path: 'Home' })
             }
             else{
                 alert("Complete los campos")
