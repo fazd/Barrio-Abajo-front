@@ -1,62 +1,66 @@
 <template>
-  <v-container id="container mx-auto">
-    
-    
-    <div id="image-container" class="mx-auto">
+  <div  class="relative">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <div id class="imbac">
       <!--<v-img
         :src="img"
         class="grey lighten-2"
       >-->
-        <div id="review" class="mx-auto">
+      <div id="review">
         <div class="text-center green">{{review}}</div>
         <div class="mx-auto yellow">Descripción</div>
+      </div>
+      <div id="event-info" class="green rounded">
+        <h1>{{title}}</h1>
+        <h3>{{author}}</h3>
+        <div class="text-center">
+          <v-rating v-model="rating" disabled background-color="orange lighten-3" color="orange"></v-rating>
         </div>
-        <div id="event-info" class="green rounded">
-      <h1>{{title}}</h1>
-      <h3>{{author}}</h3>
-      <div class="text-center">
-        <v-rating v-model="rating" disabled background-color="orange lighten-3" color="orange"></v-rating>
+        <div class="scroll">
+          <v-card v-for="(comment,index) in comments" :key="index" class="mx-auto comment">
+            <div style="padding-left:3px;">
+            <h1 class="text">{{comment.user}}</h1>
+            <h5 class="text">{{comment.date}}</h5>
+            <p class="black--text text">{{comment.text}}</p>
+            </div>
+          </v-card>
+        </div>
+        <div class="yellow">
+          <h3>{{date.toDateString()}}</h3>
+        </div>
+        <div class="red">
+          <h3>{{place}}</h3>
+        </div>
       </div>
-      <div class="scroll">
-        <v-card  v-for="(comment,index) in comments" :key="index" class="mx-auto comment">
-          <v-card-title class="text">{{comment.user}}</v-card-title>
-          <v-card-subtitle class="text">{{comment.date}}</v-card-subtitle>
-          <v-card-text class="black--text text">{{comment.text}}</v-card-text>
-        </v-card>
-      </div>
-      <div class="yellow"><h3>{{date.toDateString()}}</h3></div>
-      <div class="red"><h3>{{place}}</h3></div>
-    </div>
       <!--</v-img>-->
     </div>
-  </v-container>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    name:{
+    name: {
       type: String,
       required: true
     },
-    role:{
+    role: {
       type: String,
-      required:true
+      required: true
     }
   },
-  data: ()=>({
+  data: () => ({
     img: undefined,
     title: undefined,
-    author:undefined,
+    author: undefined,
     rating: undefined,
     review: undefined,
     date: new Date(),
     place: undefined,
-    comments: undefined  
+    comments: undefined
   }),
-  mounted(){
-    this.axios.get('http://localhost:3000/Event')
-    .then((res)=>{
+  mounted() {
+    this.axios.get("http://localhost:3000/Event").then(res => {
       console.log(this);
       this.img = res.data.img;
       this.title = res.data.title;
@@ -68,70 +72,78 @@ export default {
       this.review = res.data.review;
     });
   }
-
 };
 </script>
 
 <style scoped>
-h{
+h1 {
   text-align: center;
+  font-size: 1em;
+  font-family: 'Quicksand', sans-serif;
 }
 
+#container{
+  padding: 0;
+  margin: 0;
+}
 #event-info {
+  position: relative;
+  left: 45%;
+  top: 5%;
   width: 40%;
-  height: 70%;
+  height: 50%;
   margin-left: 20px;
 }
-#image-container{
 
-  background-image: url('Foto.jpg');
-  background-size: 100%;
-  width:100%;
-  height:400px;
+#review {
+  position: relative;
+  width: 30%;
+  height: 40%;
+  left: 15%;
 }
-#review{
- position: relative;
- width: 30%;
- height: 40%;
- margin-right: 30%;   
+.scroll {
+  width: 100%;
+  height: 200px;
+  overflow-y: auto;
 }
-.scroll{
-    width: 100%;
-    height: 350px;
-    overflow-y: auto;
-}
-.green{
+.green {
   text-align: center;
-  background-color: rgb(0,153,51);
-  opacity: 60%;
+  background-color: rgb(0, 153, 51);
   color: white;
-  
 }
-.yellow{
+.yellow {
   background-color: yellow;
   color: green;
 }
-.red{
+.red {
   background-color: red;
   color: white;
 }
-.rounded{
+.rounded {
   border-top-left-radius: 20%;
 }
-.comment{
+.comment {
   width: 80%;
   margin-top: 2%;
 }
-.text{
+.text {
   margin: 0%;
   text-align: justify;
+  font-family: 'Quicksand', sans-serif;
 }
 
-.imbac{
-  background-image: url('Foto.jpg');
+.imbac {
+  background-image: url("Foto.jpg");
   background-size: 100%;
-  width:100%;
-  height:400px;
+  width: 1500px;
+  height:650px;
+  margin-left: 0%;
+  margin-right: 0;
+  
 }
 
+.relative {
+  position: relative;
+  padding: 0;
+}
 </style>
