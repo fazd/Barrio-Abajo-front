@@ -11,6 +11,7 @@ import Comida from '../views/Comida.vue'
 import Fotografia from '../views/Fotografia.vue'
 import Prueba from '../views/Prueba.vue'
 import Eventos from '../views/Eventos.vue'
+import CrearEvento from '../views/CrearEvento.vue'
 
 Vue.use(VueRouter)
 
@@ -79,6 +80,11 @@ const routes = [
     path:'/eventos',
     name:'Eventos',
     component: Eventos
+  },
+  {
+    path:'/crearEvento',
+    name:'crearEvento',
+    component: CrearEvento
   }
 ]
 

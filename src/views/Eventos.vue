@@ -94,9 +94,9 @@
                 max-width="1500"
                 max-height="650"
             >
-                <v-card>
+                <v-card class="card-width">
                     <Event :name="card.title" :role="'Cultura'" :dialog="dialog3" ></Event>
-                    <v-btn @click="dialog3=false">Cerrar</v-btn>
+                    <div class="green"><v-btn @click="dialog3=false">Cerrar</v-btn></div>
                 </v-card>
             </v-dialog>
         </v-card>
@@ -141,6 +141,11 @@ export default {
 }
 </script>
 
-<style>
-    
+<style scoped>
+    .green{
+       background-color: rgb(0, 153, 51);
+    }
+    .card-width{
+        width: 1500px;
+    }
 </style>

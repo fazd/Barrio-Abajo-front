@@ -55,13 +55,27 @@ export default {
   },
   data: () => ({
     img: undefined,
-    title: undefined,
-    author: undefined,
-    rating: undefined,
-    review: undefined,
+    title: "Hackaton",
+    author: "Juan Arrieta, Fabio Cuello, Andrea Rugeles, Carlos vergara, Fabio Zapata",
+    rating: 3,
+    review: "Proyecto desarrolado durante la hackaton",
     date: new Date(),
-    place: undefined,
-    comments: undefined
+    place: "Uninorte",
+    comments: [{
+      user: "puccinic",
+      date: new Date().toDateString(),
+      text: "Soy un comentario"
+    },
+    {
+      user: "puccinic",
+      date: new Date().toDateString(),
+      text: "Soy un comentario"
+    },
+    {
+      user: "puccinic",
+      date: new Date().toDateString(),
+      text: "Soy un comentario"
+    }]
   }),
   mounted() {
     /*this.axios.get("http://localhost:3000/Event").then(res => {
