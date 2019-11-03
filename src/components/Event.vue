@@ -5,7 +5,6 @@
         :src="img"
         lazy-src="https://picsum.photos/id/11/100/60"
         class="grey lighten-2 mx-auto"
-        @click="funciona"
       >
         <template v-slot:placeholder>
           <v-row class="fill-height ma-0" align="center" justify="center">
@@ -16,7 +15,7 @@
       <v-divider></v-divider>
       <v-card id="review">
         <v-card-title class="justify-center mx-auto" id="review">Descripción</v-card-title>
-        <v-card-text class="black--text text-center"></v-card-text>
+        <v-card-text class="black--text text-center">{{review}}</v-card-text>
       </v-card>
     </div>
 
@@ -26,11 +25,11 @@
       <v-card-subtitle class="justify-center">Date: {{date.toDateString()}}</v-card-subtitle>
       <v-card-subtitle class="justify-center">Place: {{place}}</v-card-subtitle>
       <div class="text-center">
-        <v-rating v-model="rating" background-color="orange lighten-3" color="orange"></v-rating>
+        <v-rating v-model="rating" disabled background-color="orange lighten-3" color="orange"></v-rating>
       </div>
       <v-divider></v-divider>
       <div class="scroll">
-        <v-card v-for="(comment,index) in comments" :key="index" class="mx-auto">
+        <v-card  v-for="(comment,index) in comments" :key="index" class="mx-auto">
           <v-card-title>{{comment.user}}</v-card-title>
           <v-card-subtitle>{{comment.date}}</v-card-subtitle>
           <v-card-text class="black--text">{{comment.text}}</v-card-text>
@@ -44,30 +43,39 @@
 <script>
 export default {
   props: {
-    name: {
+    name:{
       type: String,
       required: true
+    },
+    role:{
+      type: String,
+      required:true
     }
   },
-  data: () => ({
-    img: "",
-    review: 2,
-    title: 3,
-    author: 4,
-    rating: 5,
+  data: ()=>({
+    img: undefined,
+    title: undefined,
+    author:undefined,
+    rating: undefined,
+    review: undefined,
     date: new Date(),
-    place: 6,
-    comments: 7
+    place: undefined,
+    comments: undefined  
   }),
-   methods: {
-    funciona: () => {
-        this.axios.get("http://localhost:3000/Event").then(response => {
-        console.log(response.data);
-        console.log("funciona");
-        console.log(this);
-      });
-    }
+  mounted(){
+    this.axios.get('http://localhost:3000/Event')
+    .then((res)=>{
+      console.log(this);
+      this.img = res.data.img;
+      this.title = res.data.title;
+      this.author = res.data.title;
+      this.rating = res.data.rating;
+      this.date = new Date(res.data.date);
+      this.place = res.data.place;
+      this.comments = res.data.comments;
+    });
   }
+
 };
 </script>
 
@@ -80,13 +88,13 @@ export default {
   width: 100%;
   margin-left: 20px;
 }
-#image-container {
-  width: 100%;
-  height: 400px;
+#image-container{
+    width:100%;
+    height:400px;
 }
-.scroll {
-  width: 100%;
-  height: 400px;
-  overflow-y: auto;
+.scroll{
+    width: 100%;
+    height: 400px;
+    overflow-y: auto;
 }
 </style>

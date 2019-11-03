@@ -55,7 +55,7 @@
 
 <script>
 // @ is an alias to /src
-import Event from './Event'
+import Event from '../components/Event'
 export default {
   name: 'home',
   components: {
